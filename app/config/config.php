@@ -7,6 +7,9 @@ declare(strict_types=1);
 define('APP_NAME', 'SI-APOTEK');
 define('APP_VERSION', '1.0.0');
 
+// Zona waktu Indonesia (WIB) — konsisten untuk tanggal transaksi & laporan
+date_default_timezone_set('Asia/Jakarta');
+
 // BASE_PATH = folder app/ (tempat index.php berada)
 define('BASE_PATH', dirname(__DIR__));
 

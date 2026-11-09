@@ -24,6 +24,8 @@ class Database
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                     PDO::ATTR_EMULATE_PREPARES   => false,
                 ]);
+                // Samakan zona waktu session MySQL dengan WIB (UTC+7)
+                self::$instance->exec("SET time_zone = '+07:00'");
             } catch (PDOException $e) {
                 error_log('[DB] ' . $e->getMessage());
                 http_response_code(500);

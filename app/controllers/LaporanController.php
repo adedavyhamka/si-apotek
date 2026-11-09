@@ -96,9 +96,14 @@ class LaporanController extends BaseController
         $out = fopen('php://output', 'w');
         fwrite($out, "\xEF\xBB\xBF"); // BOM UTF-8 agar Excel terbaca benar
 
+        // Helper fputcsv dengan parameter escape eksplisit (hindari deprecation PHP 8.4+)
+        $put = static function (array $row) use ($out): void {
+            fputcsv($out, $row, ',', '"', '');
+        };
+
         switch ($jenis) {
             case 'terlaris':
-                fputcsv($out, ['No', 'Nama Obat', 'Total Qty', 'Total Nilai (Rp)']);
+                $put( ['No', 'Nama Obat', 'Total Qty', 'Total Nilai (Rp)']);
                 $rows = Database::fetchAll(
                     'SELECT o.nama_obat, SUM(i.jumlah) AS total_qty, SUM(i.subtotal) AS total_nilai
                      FROM tbl_item_transaksi i
@@ -110,23 +115,23 @@ class LaporanController extends BaseController
                 );
                 $no = 1;
                 foreach ($rows as $r) {
-                    fputcsv($out, [$no++, $r['nama_obat'], $r['total_qty'], $r['total_nilai']]);
+                    $put( [$no++, $r['nama_obat'], $r['total_qty'], $r['total_nilai']]);
                 }
                 break;
 
             case 'stok':
-                fputcsv($out, ['Nama Obat', 'Kategori', 'Stok', 'Stok Minimum', 'Kedaluwarsa', 'Apotek']);
+                $put( ['Nama Obat', 'Kategori', 'Stok', 'Stok Minimum', 'Kedaluwarsa', 'Apotek']);
                 $rows = Database::fetchAll(
                     "SELECT o.nama_obat, o.kategori, o.stok, o.stok_minimum, o.expired_date, a.nama_apotek
                      FROM tbl_obat o JOIN tbl_apotek a ON a.id_apotek = o.id_apotek WHERE o.status = 'aktif' ORDER BY o.stok ASC"
                 );
                 foreach ($rows as $r) {
-                    fputcsv($out, [$r['nama_obat'], $r['kategori'], $r['stok'], $r['stok_minimum'], $r['expired_date'], $r['nama_apotek']]);
+                    $put( [$r['nama_obat'], $r['kategori'], $r['stok'], $r['stok_minimum'], $r['expired_date'], $r['nama_apotek']]);
                 }
                 break;
 
             case 'kasir':
-                fputcsv($out, ['Kasir', 'Jumlah Transaksi', 'Total (Rp)']);
+                $put( ['Kasir', 'Jumlah Transaksi', 'Total (Rp)']);
                 $rows = Database::fetchAll(
                     'SELECT k.nama_kasir, COUNT(*) AS jumlah_transaksi, SUM(t.total) AS total
                      FROM tbl_transaksi_penjualan t JOIN tbl_kasir k ON k.id_kasir = t.id_kasir
@@ -135,13 +140,13 @@ class LaporanController extends BaseController
                     [':dari' => $dari, ':sampai' => $sampai]
                 );
                 foreach ($rows as $r) {
-                    fputcsv($out, [$r['nama_kasir'], $r['jumlah_transaksi'], $r['total']]);
+                    $put( [$r['nama_kasir'], $r['jumlah_transaksi'], $r['total']]);
                 }
                 break;
 
             case 'penjualan':
             default:
-                fputcsv($out, ['Tanggal', 'Jumlah Transaksi', 'Total (Rp)']);
+                $put( ['Tanggal', 'Jumlah Transaksi', 'Total (Rp)']);
                 $rows = Database::fetchAll(
                     'SELECT DATE(tanggal) AS tgl, COUNT(*) AS jumlah_transaksi, SUM(total) AS total
                      FROM tbl_transaksi_penjualan WHERE DATE(tanggal) BETWEEN :dari AND :sampai
@@ -149,7 +154,7 @@ class LaporanController extends BaseController
                     [':dari' => $dari, ':sampai' => $sampai]
                 );
                 foreach ($rows as $r) {
-                    fputcsv($out, [$r['tgl'], $r['jumlah_transaksi'], $r['total']]);
+                    $put( [$r['tgl'], $r['jumlah_transaksi'], $r['total']]);
                 }
                 break;
         }
