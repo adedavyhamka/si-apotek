@@ -1,0 +1,30 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Log & temporary
+*.log
+app/storage/logs/
+app/storage/logs/*.log
+_log_inspeksi.txt
+
+# Backup database (jangan commit dump DB)
+*.sql.bak
+backup/
+*.gz
+
+# Kredensial produksi (jika ada file override lokal)
+app/config/database.production.php
+app/config/.env
+.env
+
+# Editor
+.vscode/
+.idea/
+
+# Dokumen referensi asli (bukan source code aplikasi — tetap ada lokal, tidak di-push)
+*.docx
+*.pptx
+*.jpeg
+*.jpg
+
