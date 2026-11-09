@@ -13,9 +13,9 @@ Diperbarui: 2026-11-10.
 | 4. Frontend | ✅ Selesai | Dashboard biru-putih, sidebar, Chart.js, responsif |
 | 5. Integrasi | ✅ Selesai | Transaksi atomik + stok + laporan terhubung |
 | 6. Testing | 🔄 Berjalan | Login/RBAC/transaksi/stok teruji; CRUD & mobile menunggu |
-| 7. GitHub | ⬜ Belum | — |
-| 8. Deployment | ⬜ Belum | — |
-| 9. Dokumentasi | 🔄 Berjalan | DATABASE.md & CHANGELOG selesai |
+| 7. GitHub | ✅ Selesai | Repo `si-apotek` public di-push |
+| 8. Deployment | ⬜ Belum | Menunggu akses panel InfinityFree |
+| 9. Dokumentasi | ✅ Selesai | README, INSTALLATION, DATABASE, DEPLOYMENT, USER_GUIDE, CHANGELOG |
 
 ## Lingkungan Pengembangan
 

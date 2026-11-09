@@ -55,11 +55,11 @@ Status: `[ ]` belum, `[~]` berjalan, `[x]` selesai.
 - [~] Tampilan mobile (perlu uji manual)
 
 ## TAHAP 7 — GITHUB
-- [ ] Buat repo `si-apotek`
-- [ ] `.gitignore`
-- [ ] `README.md`
-- [ ] Commit bertahap
-- [ ] Push ke GitHub
+- [x] Buat repo `si-apotek`
+- [x] `.gitignore`
+- [x] `README.md`
+- [x] Commit bertahap (commit awal lengkap)
+- [x] Push ke GitHub (https://github.com/adedavyhamka/si-apotek)
 
 ## TAHAP 8 — DEPLOYMENT (InfinityFree)
 - [ ] Siapkan paket produksi
