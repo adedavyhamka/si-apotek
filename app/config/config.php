@@ -7,6 +7,10 @@ declare(strict_types=1);
 define('APP_NAME', 'SI-APOTEK');
 define('APP_VERSION', '1.0.0');
 
+// Versi aset statis — naikkan saat CSS/JS/logo berubah agar browser
+// tidak memakai versi cache lama (InfinityFree cache 30 hari).
+define('ASSET_VERSION', '20261110');
+
 // Zona waktu Indonesia (WIB) — konsisten untuk tanggal transaksi & laporan
 date_default_timezone_set('Asia/Jakarta');
 

@@ -1,6 +1,6 @@
 <div class="auth-card">
     <div class="auth-header">
-        <img src="assets/images/logo-si-apotek.png" alt="<?= APP_NAME ?>" width="76" height="76" style="filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));">
+        <img src="assets/images/logo-si-apotek.png?v=<?= ASSET_VERSION ?>" alt="<?= APP_NAME ?>" width="76" height="76" style="filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));">
         <h1 class="h4 mt-3 mb-1"><?= APP_NAME ?></h1>
         <p class="mb-0 small opacity-75">Sistem Informasi Manajemen Apotek</p>
     </div>

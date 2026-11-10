@@ -4,7 +4,7 @@
  */
 ?>
 <div class="report-kop">
-    <img src="assets/images/logo-si-apotek.png" alt="SI-APOTEK" class="report-logo">
+    <img src="assets/images/logo-si-apotek.png?v=<?= ASSET_VERSION ?>" alt="SI-APOTEK" class="report-logo" width="60" height="60">
     <div class="apotek-info">
         <?php if (!empty($report['apotek'])): ?>
             <p class="apotek-nama"><?= e($report['apotek']['nama_apotek']) ?></p>

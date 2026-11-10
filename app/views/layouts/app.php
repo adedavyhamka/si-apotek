@@ -6,9 +6,9 @@
     <title><?= e($title ?? APP_NAME) ?> — <?= APP_NAME ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/images/favicon-si-apotek.png">
-    <link href="assets/css/app.css" rel="stylesheet">
-    <link href="assets/css/report.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/favicon-si-apotek.png?v=<?= ASSET_VERSION ?>">
+    <link href="assets/css/app.css?v=<?= ASSET_VERSION ?>" rel="stylesheet">
+    <link href="assets/css/report.css?v=<?= ASSET_VERSION ?>" rel="stylesheet">
 </head>
 <body>
 <div class="app-wrapper">
@@ -16,7 +16,7 @@
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
-            <img src="assets/images/logo-si-apotek.png" alt="<?= APP_NAME ?>" class="brand-logo">
+            <img src="assets/images/logo-si-apotek.png?v=<?= ASSET_VERSION ?>" alt="<?= APP_NAME ?>" class="brand-logo" width="34" height="34">
             <span><?= APP_NAME ?></span>
         </div>
         <nav class="sidebar-nav">
@@ -98,6 +98,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="assets/js/app.js?v=<?= ASSET_VERSION ?>"></script>
 </body>
 </html>

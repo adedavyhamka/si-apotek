@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($title ?? APP_NAME) ?> — <?= APP_NAME ?></title>
-    <link rel="icon" type="image/png" href="assets/images/favicon-si-apotek.png">
-    <link href="assets/css/report.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/favicon-si-apotek.png?v=<?= ASSET_VERSION ?>">
+    <link href="assets/css/report.css?v=<?= ASSET_VERSION ?>" rel="stylesheet">
 </head>
 <body class="<?= !empty($report['landscape']) ? 'report-landscape' : '' ?>">
 

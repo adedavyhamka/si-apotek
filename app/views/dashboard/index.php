@@ -17,7 +17,7 @@ foreach ($bulanan as $b) {
 
 <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
     <div class="d-flex align-items-center gap-3">
-        <img src="assets/images/logo-si-apotek.png" alt="SI-APOTEK" width="46" height="46">
+        <img src="assets/images/logo-si-apotek.png?v=<?= ASSET_VERSION ?>" alt="SI-APOTEK" width="46" height="46">
         <div>
             <h1 class="h4 mb-1">Dashboard</h1>
             <p class="text-muted mb-0">Ringkasan operasional apotek hari ini.</p>
