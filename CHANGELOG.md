@@ -5,6 +5,13 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Perbaikan bug (2026-11-10, pasca-deploy)
+- **Fix kritis**: bug `$data` di `View::render()` — nama parameter `$data` bentrok dengan key `'data'` yang di-extract, sehingga `extract(EXTR_SKIP)` melewatkan key `'data'` dan semua form "Tambah" salah submit ke action `update` (data tidak pernah tersimpan). Rename parameter ke `$viewData`. Berdampak ke semua modul (pemilik, apotek, apoteker, kasir, obat, pelanggan, resep, user).
+- **Fix session**: `session_start(): ps_files_cleanup_dir: opendir(/php_sessions) failed` di InfinityFree — set `session_save_path()` ke `storage/sessions/` (writable).
+- **Fix error disclosure**: `display_errors` diubah jadi `0` (produksi), error hanya dicatat ke log.
+- **Fix secure cookie**: cookie session otomatis `secure` saat HTTPS.
+- **Fix minor**: input lama (`old()`) dibersihkan setelah halaman dirender agar tidak menempel di form berikutnya.
+
 ### TAHAP 8 — Deployment (2026-11-10)
 - **Deployed**: aplikasi live di https://si-apotek.gt.tc (InfinityFree).
 - **Database**: `if0_43397489_si_apotek` dibuat & diimport (schema + seed) via installer dari dalam hosting.

@@ -14,20 +14,34 @@ date_default_timezone_set('Asia/Jakarta');
 define('BASE_PATH', dirname(__DIR__));
 
 // ---- Error handling ----
-// Development: tampilkan error. PRODUKSI: ubah display_errors menjadi '0'.
+// PRODUKSI: display_errors '0' (jangan tampilkan detail error ke pengguna),
+// cukup dicatat ke log. Ubah jadi '1' hanya saat debugging lokal.
 error_reporting(E_ALL);
-ini_set('display_errors', '1');
+ini_set('display_errors', '0');
 ini_set('log_errors', '1');
 ini_set('error_log', BASE_PATH . '/storage/logs/error.log');
 
 // ---- Sesi ----
+// Shared hosting (InfinityFree) sering punya session.save_path default yang
+// salah (/php_sessions) sehingga memicu error "ps_files_cleanup_dir ... Permission denied".
+// Solusi: pakai direktori writable milik aplikasi.
+$sessionDir = BASE_PATH . '/storage/sessions';
+if (!is_dir($sessionDir)) {
+    @mkdir($sessionDir, 0770, true);
+}
+if (is_dir($sessionDir) && is_writable($sessionDir)) {
+    session_save_path($sessionDir);
+}
+
 if (session_status() === PHP_SESSION_NONE) {
+    $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
     session_set_cookie_params([
         'lifetime' => 0,
         'path'     => '/',
         'httponly' => true,
         'samesite' => 'Lax',
-        // 'secure' => true, // aktifkan saat HTTPS tersedia
+        'secure'   => $secure, // aktif otomatis saat HTTPS
     ]);
     session_start();
 }
