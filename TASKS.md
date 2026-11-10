@@ -62,18 +62,18 @@ Status: `[ ]` belum, `[~]` berjalan, `[x]` selesai.
 - [x] Push ke GitHub (https://github.com/adedavyhamka/si-apotek)
 
 ## TAHAP 8 — DEPLOYMENT (InfinityFree)
-- [ ] Siapkan paket produksi
-- [ ] Konfigurasi DB hosting
-- [ ] Import SQL via phpMyAdmin
-- [ ] Upload source code ke htdocs
-- [ ] Konfigurasi produksi
-- [ ] SSL/HTTPS
-- [ ] Uji via `si-apotek.gt.tc`
+- [x] Siapkan paket produksi
+- [x] Konfigurasi DB hosting (sql303.infinityfree.com)
+- [x] Import SQL (via installer dari dalam hosting — MySQL tidak bisa diakses eksternal)
+- [x] Upload source code ke htdocs (57 file via FTP)
+- [x] Konfigurasi produksi (database.php)
+- [x] SSL/HTTPS (redirect otomatis ke https)
+- [x] Uji via si-apotek.gt.tc (login, dashboard, transaksi, stok 8→7, struk)
 
 ## TAHAP 9 — DOKUMENTASI
-- [ ] `README.md`
-- [ ] `INSTALLATION.md`
-- [ ] `DATABASE.md`
-- [ ] `DEPLOYMENT.md`
-- [ ] `USER_GUIDE.md`
-- [ ] `CHANGELOG.md`
+- [x] `README.md`
+- [x] `INSTALLATION.md`
+- [x] `DATABASE.md`
+- [x] `DEPLOYMENT.md`
+- [x] `USER_GUIDE.md`
+- [x] `CHANGELOG.md`

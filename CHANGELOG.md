@@ -5,6 +5,12 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### TAHAP 8 — Deployment (2026-11-10)
+- **Deployed**: aplikasi live di https://si-apotek.gt.tc (InfinityFree).
+- **Database**: `if0_43397489_si_apotek` dibuat & diimport (schema + seed) via installer dari dalam hosting.
+- **Upload**: 57 file ke `htdocs/` via FTP.
+- **Verified**: login admin, dashboard data riil, transaksi POS (stok Amoxicillin 8→7), struk, timezone WIB.
+
 ### TAHAP 7 — GitHub (2026-11-10)
 - **Added**: `.gitignore` (kecualikan log, backup, kredensial, dokumen referensi asli).
 - **Added**: repository `si-apotek` (public) di GitHub → https://github.com/adedavyhamka/si-apotek

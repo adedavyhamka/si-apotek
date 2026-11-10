@@ -12,9 +12,9 @@ Diperbarui: 2026-11-10.
 | 3. Backend | ✅ Selesai | Auth, RBAC, CRUD 11 modul, PDO prepared statement |
 | 4. Frontend | ✅ Selesai | Dashboard biru-putih, sidebar, Chart.js, responsif |
 | 5. Integrasi | ✅ Selesai | Transaksi atomik + stok + laporan terhubung |
-| 6. Testing | 🔄 Berjalan | Login/RBAC/transaksi/stok teruji; CRUD & mobile menunggu |
+| 6. Testing | ✅ Selesai | Login/RBAC/transaksi/stok/CRUD/CSV teruji (lokal + produksi) |
 | 7. GitHub | ✅ Selesai | Repo `si-apotek` public di-push |
-| 8. Deployment | ⬜ Belum | Menunggu akses panel InfinityFree |
+| 8. Deployment | ✅ Selesai | Live di https://si-apotek.gt.tc |
 | 9. Dokumentasi | ✅ Selesai | README, INSTALLATION, DATABASE, DEPLOYMENT, USER_GUIDE, CHANGELOG |
 
 ## Lingkungan Pengembangan
