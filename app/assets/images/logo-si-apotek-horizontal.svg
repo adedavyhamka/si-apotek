@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" width="720" height="200">
+  <defs>
+    <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#16834B"/>
+      <stop offset="55%" stop-color="#16834B"/>
+      <stop offset="100%" stop-color="#1976D2"/>
+    </linearGradient>
+  </defs>
+  <!-- Ikon: kapsul + tanda plus -->
+  <g transform="translate(26,20) scale(0.37)">
+    <rect x="156" y="40" width="200" height="432" rx="100" fill="url(#hg)"/>
+    <rect x="226" y="156" width="60" height="200" rx="10" fill="#FFFFFF"/>
+    <rect x="156" y="226" width="200" height="60" rx="10" fill="#FFFFFF"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="176" y="100" font-family="Arial, 'Helvetica Neue', sans-serif" font-size="54" font-weight="700" fill="#16834B" letter-spacing="1.5">SI-APOTEK</text>
+  <text x="178" y="136" font-family="Arial, 'Helvetica Neue', sans-serif" font-size="21" fill="#344054">Sistem Informasi Manajemen Apotek</text>
+</svg>

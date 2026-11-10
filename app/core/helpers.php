@@ -161,6 +161,70 @@ function format_datetime(?string $d): string
     return $ts === false ? $d : date('d/m/Y H:i', $ts);
 }
 
+/* ---------- Format sel laporan ---------- */
+
+/** Kunci kolom yang bernilai rupiah. */
+function report_is_rupiah(string $key): bool
+{
+    return in_array($key, ['total', 'total_nilai', 'rata_rata', 'harga', 'nilai_persediaan', 'total_penjualan'], true);
+}
+
+/** Kunci kolom yang berupa angka bulat (rata kanan). */
+function report_is_angka(string $key): bool
+{
+    return in_array($key, ['stok', 'stok_minimum', 'jml_transaksi', 'jumlah_terjual', 'jml_item'], true);
+}
+
+/** Teks polos (untuk Excel/CSV) dari nilai kolom. */
+function report_cell_text(string $key, mixed $val): string
+{
+    if ($val === null || $val === '') {
+        return '';
+    }
+    if (report_is_rupiah($key)) {
+        return number_format((float) $val, 0, ',', '.');
+    }
+    if (in_array($key, ['tanggal', 'expired_date'], true)) {
+        return format_tanggal((string) $val);
+    }
+    if ($key === 'sisa_hari') {
+        $d = (int) $val;
+        return $d < 0 ? 'Kedaluwarsa' : ($d . ' hari');
+    }
+    return (string) $val;
+}
+
+/**
+ * Sel laporan untuk tampilan HTML. Return [html, classAlign].
+ * classAlign: 'num' (rata kanan), 'ctr' (tengah), '' (kiri).
+ */
+function report_cell(string $key, mixed $val): array
+{
+    if ($val === null || $val === '') {
+        return ['-', ''];
+    }
+    if (report_is_rupiah($key)) {
+        return [format_uang($val), 'num'];
+    }
+    if (report_is_angka($key)) {
+        return ['<span class="num">' . (string) (int) $val . '</span>', 'num'];
+    }
+    if (in_array($key, ['tanggal', 'expired_date'], true)) {
+        return [format_tanggal((string) $val), 'ctr'];
+    }
+    if ($key === 'sisa_hari') {
+        $d = (int) $val;
+        if ($d < 0) {
+            return ['<span class="badge-exp merah">Kedaluwarsa</span>', 'ctr'];
+        }
+        if ($d <= 30) {
+            return ['<span class="badge-exp kuning">' . $d . ' hari</span>', 'ctr'];
+        }
+        return ['<span class="badge-exp abu">' . $d . ' hari</span>', 'ctr'];
+    }
+    return [e((string) $val), ''];
+}
+
 /* ---------- Pagination ---------- */
 function paginate(int $total, int $perPage = 10): array
 {

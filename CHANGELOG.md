@@ -5,6 +5,17 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### feat: redesign report templates & branding (2026-11-10)
+- **Logo resmi**: kapsul + tanda plus farmasi (gradien hijau `#16834B` → biru `#1976D2`).
+  File: `logo-si-apotek.svg/png`, `logo-si-apotek-horizontal.svg`, `favicon-si-apotek.svg/png`.
+- **Logo dipakai** di sidebar, login, dashboard, header laporan, halaman cetak, favicon.
+- **Redesign laporan**: 6 jenis laporan (penjualan, harian, terlaris, kasir, stok, kedaluwarsa)
+  dengan kolom & ringkasan sesuai spesifikasi, filter apotek + validasi rentang tanggal.
+- **Cetak profesional**: layout A4 portrait/landscape (`@page`), kop (logo + identitas
+  apotek dari DB), footer, blok tanda tangan, tanpa sidebar saat cetak.
+- **Export**: Excel (`.xls` via HTML) & CSV (BOM UTF-8) untuk semua jenis laporan.
+- **Dokumentasi**: `REPORT_TEMPLATE.md`, `LOGO_GUIDELINE.md`, `PRINT_CONFIGURATION.md`.
+
 ### Perbaikan bug (2026-11-10, pasca-deploy)
 - **Fix kritis**: bug `$data` di `View::render()` — nama parameter `$data` bentrok dengan key `'data'` yang di-extract, sehingga `extract(EXTR_SKIP)` melewatkan key `'data'` dan semua form "Tambah" salah submit ke action `update` (data tidak pernah tersimpan). Rename parameter ke `$viewData`. Berdampak ke semua modul (pemilik, apotek, apoteker, kasir, obat, pelanggan, resep, user).
 - **Fix session**: `session_start(): ps_files_cleanup_dir: opendir(/php_sessions) failed` di InfinityFree — set `session_save_path()` ke `storage/sessions/` (writable).

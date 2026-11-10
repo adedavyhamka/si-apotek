@@ -6,7 +6,9 @@
     <title><?= e($title ?? APP_NAME) ?> — <?= APP_NAME ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/favicon-si-apotek.png">
     <link href="assets/css/app.css" rel="stylesheet">
+    <link href="assets/css/report.css" rel="stylesheet">
 </head>
 <body>
 <div class="app-wrapper">
@@ -14,7 +16,7 @@
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
-            <i class="bi bi-capsule-pill"></i>
+            <img src="assets/images/logo-si-apotek.png" alt="<?= APP_NAME ?>" class="brand-logo">
             <span><?= APP_NAME ?></span>
         </div>
         <nav class="sidebar-nav">
